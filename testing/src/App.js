@@ -30,8 +30,15 @@ function App() {
 
   return (
     <div className="App">
-        <Display />
-        <Dashboard />
+        <Display
+        strike={stike}
+        ball={ball} 
+        />
+        <Dashboard 
+        addStrike={addStrike}
+        addBall={addBall}
+        foulBall={foulBall}
+        />
     </div>
   );
 }
