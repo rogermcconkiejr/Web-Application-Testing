@@ -4,7 +4,30 @@ import './App.css';
 import Display from "./Display";
 import Dashboard from "./Dashboard";
 
+import { useState } from 'react';
+const [strike, setStrike] = useState(0);
+const [ball, setBall] = useState(0);
+
+const addStrike = () => {
+if (strike <3) {setStrike(strike + 1)
+} else {
+  setStrike(0);
+  setBall(0);
+}
+}
+const addBall = () => {
+if (ball < 4){setBall(ball + 1)
+} else {
+  setStrike(0);
+  setBall(0);
+}
+}
+const foulBall = ()=>{
+  if (strike ==! 2){setStrike(strike + 1)
+  } else { strike === 2};
+}
 function App() {
+
   return (
     <div className="App">
         <Display />
