@@ -8,22 +8,21 @@ function App() {
   const [balls, setBalls] = useState(0);
   
   const addStrike = () => {
-  if (strikes <3) {setStrikes(strikes + 1)
+  if (strikes <2) {setStrikes(strikes + 1)
   } else {
     setStrikes(0);
     setBalls(0);
   }
   }
   const addBall = () => {
-  if (balls < 4){setBalls(balls + 1)
+  if (balls < 3){setBalls(balls + 1)
   } else {
     setStrikes(0);
     setBalls(0);
   }
   }
   const foulBall = ()=>{
-    if (strikes ==! 2){setStrikes(strikes + 1)
-    } else { setStrikes(strikes === 2)};
+    if (strikes < 2){setStrikes(strikes + 1)};
   }
   const hit = () => {
     setStrikes(0);
@@ -31,6 +30,7 @@ function App() {
   }
   return (
     <div className="App">
+      <h1>Baseball Scoreboard</h1>
         <Display
         strikes={strikes}
         balls={balls} 
