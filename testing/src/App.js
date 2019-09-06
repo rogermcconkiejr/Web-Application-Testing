@@ -1,43 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import Display from "./Display";
 import Dashboard from "./Dashboard";
 
-import { useState } from 'react';
-const [strike, setStrike] = useState(0);
-const [ball, setBall] = useState(0);
-
-const addStrike = () => {
-if (strike <3) {setStrike(strike + 1)
-} else {
-  setStrike(0);
-  setBall(0);
-}
-}
-const addBall = () => {
-if (ball < 4){setBall(ball + 1)
-} else {
-  setStrike(0);
-  setBall(0);
-}
-}
-const foulBall = ()=>{
-  if (strike ==! 2){setStrike(strike + 1)
-  } else { strike === 2};
-}
 function App() {
-
+  const [strikes, setStrikes] = useState(0);
+  const [balls, setBalls] = useState(0);
+  
+  const addStrike = () => {
+  if (strikes <3) {setStrikes(strikes + 1)
+  } else {
+    setStrikes(0);
+    setBalls(0);
+  }
+  }
+  const addBall = () => {
+  if (balls < 4){setBalls(balls + 1)
+  } else {
+    setStrikes(0);
+    setBalls(0);
+  }
+  }
+  const foulBall = ()=>{
+    if (strikes ==! 2){setStrikes(strikes + 1)
+    } else { setStrikes(strikes === 2)};
+  }
+  const hit = () => {
+    setStrikes(0);
+    setBalls(0);
+  }
   return (
     <div className="App">
         <Display
-        strike={stike}
-        ball={ball} 
+        strikes={strikes}
+        balls={balls} 
         />
         <Dashboard 
         addStrike={addStrike}
         addBall={addBall}
         foulBall={foulBall}
+        hit = {hit}
         />
     </div>
   );
